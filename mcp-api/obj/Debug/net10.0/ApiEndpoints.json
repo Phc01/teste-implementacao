@@ -1,0 +1,23 @@
+[
+  {
+    "ContainingType": "mcp_api.Controllers.ProdutoController",
+    "Method": "Get",
+    "RelativePath": "produtos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoria",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "limite",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
