@@ -32,3 +32,4 @@ C:\Users\pedro\source\repos\Teste\teste-implementacao\mcp-api\obj\Debug\net10.0\
 C:\Users\pedro\source\repos\Teste\teste-implementacao\mcp-api\obj\Debug\net10.0\mcp-api.pdb
 C:\Users\pedro\source\repos\Teste\teste-implementacao\mcp-api\obj\Debug\net10.0\mcp-api.genruntimeconfig.cache
 C:\Users\pedro\source\repos\Teste\teste-implementacao\mcp-api\obj\Debug\net10.0\ref\mcp-api.dll
+C:\Users\pedro\source\repos\Teste\teste-implementacao\mcp-api\obj\Debug\net10.0\mcp-api.sourcelink.json

@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="mcp-api/mcp-api.csproj" />
+  <Project Path="mcp-cliente/mcp-cliente.csproj" Id="c388abe7-a6ff-4449-850d-0200c730a475" />
+</Solution>

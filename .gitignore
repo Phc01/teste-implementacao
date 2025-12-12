@@ -1,0 +1,26 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# Build output
+bin/
+obj/
+
+# Rider / JetBrains
+.idea/
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.temp
+
+# DLLs e executáveis gerados
+*.dll
+*.exe
+*.pdb
+
+# Cache
+*.cache
