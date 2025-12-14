@@ -94,6 +94,8 @@ liste todos os produtos
 
 liste todos os produtos da categoria eletronicos
 
+liste todos os produtos da categoria moveis
+
 liste todos os produtos da categoria cozinha
 
 ```
