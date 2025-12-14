@@ -1,4 +1,4 @@
-\# MCP – Assistente de Consulta de Produtos
+# MCP – Assistente de Consulta de Produtos
 
 
 
@@ -6,15 +6,15 @@ Este projeto demonstra um \*\*assistente de consulta de produtos\*\* utilizando:
 
 
 
-\* \*\*.NET (C#)\*\* para API e cliente
+**.NET (C#)** para API e cliente
 
-\* \*\*Ollama (LLM local)\*\* para interpretação da intenção do usuário
+***Ollama (LLM local)** para interpretação da intenção do usuário
 
-\* Comunicação via \*\*HTTP REST\*\*
+* Comunicação via **HTTP REST**
 
 
 
-O objetivo é mostrar, de forma didática, como um modelo de linguagem pode ser usado \*\*apenas como interpretador de intenção\*\*, sem acesso direto aos dados, mantendo a lógica de negócio sob controle da aplicação.
+O objetivo é mostrar, de forma didática, como um modelo de linguagem pode ser usado **apenas como interpretador de intenção**, sem acesso direto aos dados, mantendo a lógica de negócio sob controle da aplicação.
 
 
 
@@ -22,7 +22,7 @@ O objetivo é mostrar, de forma didática, como um modelo de linguagem pode ser 
 
 
 
-\## 📦 Estrutura do Projeto
+## 📦 Estrutura do Projeto
 
 
 
@@ -54,29 +54,29 @@ Teste/
 
 
 
-\## 🚀 Como funciona
+## 🚀 Como funciona
 
 
 
-1\. O usuário faz uma pergunta em linguagem natural no \*\*cliente console\*\*
+1. O usuário faz uma pergunta em linguagem natural no **cliente console**
 
-2\. A pergunta é enviada ao \*\*Ollama\*\*
+2. A pergunta é enviada ao **Ollama**
 
-3\. O modelo retorna \*\*somente um JSON\*\* contendo:
-
-
-
-&nbsp;  \* `categoria`
-
-&nbsp;  \* `listarTodos`
-
-4\. O cliente decide qual endpoint chamar na API
-
-5\. A \*\*API retorna os produtos\*\*, aplicando filtros quando necessário
+3. O modelo retorna **somente um JSON** contendo:
 
 
 
-O modelo \*\*não acessa dados\*\*, \*\*não faz consultas\*\* e \*\*não decide regras de negócio\*\*.
+&nbsp;  * `categoria`
+
+&nbsp;  * `listarTodos`
+
+4. O cliente decide qual endpoint chamar na API
+
+5. A **API retorna os produtos**, aplicando filtros quando necessário
+
+
+
+O modelo **não acessa dados**, **não faz consultas** e **não decide regras de negócio**.
 
 
 
@@ -84,7 +84,7 @@ O modelo \*\*não acessa dados\*\*, \*\*não faz consultas\*\* e \*\*não decide
 
 
 
-\## 🧠 Exemplo de Perguntas Suportadas
+## 🧠 Exemplo de Perguntas Suportadas
 
 
 
@@ -116,11 +116,11 @@ Não faço esse tipo de busca.
 
 
 
-\## 🔌 API de Produtos
+## 🔌 API de Produtos
 
 
 
-\### Endpoint
+### Endpoint
 
 
 
@@ -134,7 +134,7 @@ GET /produtos?categoria=Eletronicos
 
 
 
-\### Exemplo de Resposta
+### Exemplo de Resposta
 
 
 
@@ -142,25 +142,25 @@ GET /produtos?categoria=Eletronicos
 
 {
 
-&nbsp; "categoria": "Eletronicos",
+ "categoria": "Eletronicos",
 
-&nbsp; "total": 5,
+ "total": 5,
 
-&nbsp; "itens": \[
+ "itens": [
 
-&nbsp;   {
+   {
 
-&nbsp;     "id": 1,
+     "id": 1,
 
-&nbsp;     "nome": "Notebook",
+     "nome": "Notebook",
 
-&nbsp;     "categoria": "Eletronicos",
+     "categoria": "Eletronicos",
 
-&nbsp;     "preco": 3000
+     "preco": 3000
 
-&nbsp;   }
+   }
 
-&nbsp; ]
+ ]
 
 }
 
@@ -172,11 +172,11 @@ GET /produtos?categoria=Eletronicos
 
 
 
-\## 🛠️ Como executar
+## 🛠️ Como executar
 
 
 
-\### 1️⃣ Subir a API
+### 1️⃣ Subir a API
 
 
 
@@ -196,13 +196,13 @@ A API ficará disponível em:
 
 ```
 
-http://localhost:5007
+http://localhost:5007/produtos
 
 ```
 
 
 
-\### 2️⃣ Executar o cliente
+### 2️⃣ Executar o cliente
 
 
 
@@ -224,15 +224,15 @@ dotnet run
 
 
 
-\## 🧪 Observações Importantes
+## 🧪 Observações Importantes
 
 
 
-\* Sempre que alterar a API, \*\*reinicie o projeto da API\*\*
-
-\* O cliente depende da API rodando corretamente na porta configurada
-
-\* Categorias são \*\*case-insensitive\*\*, mas devem bater com os valores cadastrados
+* Sempre que alterar a API, **reinicie o projeto da API**
+  
+* O cliente depende da API rodando corretamente na porta configurada
+  
+* Categorias são **case-insensitive**, mas devem bater com os valores cadastrados
 
 
 
@@ -240,49 +240,20 @@ dotnet run
 
 
 
-\## 🎯 Objetivo Didático
+## 🎯 Objetivo Didático
 
 
 
 Este projeto foi criado para demonstrar:
 
 
+* Uso de LLMs como **interpretadores de intenção**
 
-\* Uso de LLMs como \*\*interpretadores de intenção\*\*
+* Separação clara entre IA e regras de negócio
 
-\* Separação clara entre IA e regras de negócio
+* Evitar que a IA "invente" dados
 
-\* Evitar que a IA "invente" dados
-
-\* Controle total da aplicação sobre o que é retornado
-
-
-
----
-
-
-
-\## 🔮 Possíveis Melhorias Futuras
-
-
-
-\* Criar um \*\*CategoriaController\*\* e trabalhar com \*\*IDs de categoria\*\* em vez de nomes
-
-\* Persistir produtos e categorias em um banco de dados
-
-\* Implementar paginação real (skip/take)
-
-\* Criar um cache para respostas frequentes
-
-\* Adicionar testes automatizados (unitários e de integração)
-
-\* Padronizar categorias com enum ou tabela dedicada
-
-\* Criar versionamento da API
-
-\* Implementar autenticação e autorização
-
-\* Criar uma interface web ou frontend simples
+* Controle total da aplicação sobre o que é retornado
 
 
 
@@ -290,7 +261,35 @@ Este projeto foi criado para demonstrar:
 
 
 
-\## 📄 Licença
+## 🔮 Possíveis Melhorias Futuras
+
+
+
+* Criar um **CategoriaController** e trabalhar com **IDs de categoria** em vez de nomes
+
+* Persistir produtos e categorias em um banco de dados
+
+* Implementar paginação real (skip/take)
+
+* Criar um cache para respostas frequentes
+
+* Adicionar testes automatizados (unitários e de integração)
+
+* Padronizar categorias com enum ou tabela dedicada
+
+* Criar versionamento da API
+
+* Implementar autenticação e autorização
+
+* Criar uma interface web ou frontend simples
+
+
+
+---
+
+
+
+## 📄 Licença
 
 
 
