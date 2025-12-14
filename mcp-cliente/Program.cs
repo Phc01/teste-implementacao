@@ -14,6 +14,7 @@ if (string.IsNullOrWhiteSpace(perguntaUsuario))
 	return;
 }
 
+
 var ollamaPrompt =
 @"Você deve analisar a pergunta do usuário e retornar APENAS JSON válido.
 
@@ -24,8 +25,13 @@ REGRAS IMPORTANTES:
 - NÃO use ```json.
 - Responda SOMENTE um objeto JSON.
 - A categoria deve ser exatamente como o usuário escreveu.
-- Se o usuário mencionar uma categoria, sempre retornar ""listarTodos"": false.
+- Se o usuário mencionar uma categoria, retornar ""listarTodos"": false.
 - Só use ""listarTodos"": true quando o usuário pedir para listar tudo sem mencionar categoria.
+- Se a pergunta não for sobre produtos, retornar:
+  {
+    ""categoria"": null,
+    ""listarTodos"": false
+  }
 
 Pergunta:
 """ + perguntaUsuario + @"""
@@ -35,7 +41,6 @@ Responda SOMENTE isso, como JSON:
   ""categoria"": ""<categoria>"",
   ""listarTodos"": <true_or_false>
 }";
-
 
 var ollamaRequest = new
 {
@@ -62,42 +67,30 @@ if (ollamaJson == null || string.IsNullOrWhiteSpace(ollamaJson.response))
 	return;
 }
 
-IntentResult? intent = null;
+var intent = JsonSerializer.Deserialize<IntentResult>(
+	ollamaJson.response,
+	new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
+);
 
-try
+if (intent is null)
 {
-	intent = JsonSerializer.Deserialize<IntentResult>(
-		ollamaJson.response,
-		new JsonSerializerOptions { PropertyNameCaseInsensitive = true }
-	);
-}
-catch
-{
-	Console.WriteLine("A IA não retornou JSON válido.");
+	Console.WriteLine("Não faço esse tipo de busca.");
 	return;
 }
 
-if (intent == null)
+if (!intent.listarTodos && string.IsNullOrWhiteSpace(intent.categoria))
 {
-	Console.WriteLine("Não foi possível interpretar a intenção.");
+	Console.WriteLine("Não faço esse tipo de busca.");
 	return;
 }
 
-bool usuarioMencionouCategoria =
-	perguntaUsuario.Contains("categoria", StringComparison.OrdinalIgnoreCase);
-
-if (usuarioMencionouCategoria && string.IsNullOrWhiteSpace(intent.categoria))
-{
-	Console.WriteLine("Não encontrei itens para essa categoria.");
-	return;
-}
-
-bool categoriaInformada = !string.IsNullOrWhiteSpace(intent.categoria);
 
 var apiUrl =
-	categoriaInformada
-		? $"/produtos?categoria={Uri.EscapeDataString(intent.categoria!)}"
-		: "/produtos";
+	intent.listarTodos
+		? "/produtos"
+		: $"/produtos?categoria={Uri.EscapeDataString(intent.categoria!)}";
+
+
 
 var apiClient = new HttpClient { BaseAddress = new Uri(API_BASE_URL) };
 var produtosResponse = await apiClient.GetFromJsonAsync<ProdutoResponse>(apiUrl);

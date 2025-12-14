@@ -11,11 +11,6 @@
         "Name": "categoria",
         "Type": "System.String",
         "IsRequired": false
-      },
-      {
-        "Name": "limite",
-        "Type": "System.Int32",
-        "IsRequired": false
       }
     ],
     "ReturnTypes": []
