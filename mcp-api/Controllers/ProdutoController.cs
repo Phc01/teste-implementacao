@@ -11,7 +11,7 @@ public class ProdutoController : ControllerBase
 		new Produto(1, "Notebook", "Eletronicos", 3000),
 		new Produto(2, "Mouse", "Eletronicos", 200),
 		new Produto(3, "Teclado", "Eletronicos", 500),
-		new Produto(4, "Cadeira Games", "Moveis", 2000),
+		new Produto(4, "Cadeira Gamer", "Moveis", 2000),
 		new Produto(5, "Monitor", "Eletronicos", 1555),
 		new Produto(6, "Mesa com Regulagem", "Moveis", 3500),
 		new Produto(7, "Microfone", "Eletronicos", 780),

@@ -4,11 +4,11 @@
 
 Este projeto demonstra um \*\*assistente de consulta de produtos\*\* utilizando:
 
-
+**Visual Studio 2026**
 
 **.NET (C#)** para API e cliente
 
-***Ollama (LLM local)** para interpretação da intenção do usuário
+**Ollama (LLM local)** para interpretação da intenção do usuário
 
 * Comunicação via **HTTP REST**
 
