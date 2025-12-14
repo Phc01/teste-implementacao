@@ -2,7 +2,7 @@
 
 
 
-Este projeto demonstra um \*\*assistente de consulta de produtos\*\* utilizando:
+Este projeto demonstra um **assistente de consulta de produtos** utilizando:
 
 **Visual Studio 2026**
 
