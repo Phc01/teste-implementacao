@@ -83,6 +83,14 @@ O modelo **não acessa dados**, **não faz consultas** e **não decide regras de
 ---
 
 
+FLUXO DA APLICAÇÃO
+
+Usuário -> Cliente (Console) -> Modelo IA (Ollama) -> MCP Client -> API de Produtos <- Resposta volta ao usuário
+
+---
+
+
+
 
 ## 🧠 Exemplo de Perguntas Suportadas
 
@@ -174,55 +182,41 @@ GET /produtos?categoria=Eletronicos
 
 
 
-## 🛠️ Como executar
+## 🛠️ COMO EXECUTAR
 
+### 1) Subir a API
 
-
-### 1️⃣ Subir a API
-
-
-
-```bash
-
+```
 cd mcp-api
-
 dotnet run
-
 ```
 
-
-
-A API ficará disponível em:
-
-
-
+#### API disponível em:
 ```
-
 http://localhost:5007/produtos
-
 ```
 
+### 2) Rodar o Ollama
 
+```
+ollama pull llama3.2
+ollama serve
+```
 
-### 2️⃣ Executar o cliente
+#### Ollama disponível em:
 
+```
+http://localhost:11434
+```
 
+### 3) Executar o cliente
 
-Em outro terminal:
-
-
-
-```bash
-
+```
 cd mcp-cliente
-
 dotnet run
-
 ```
-
-
-
 ---
+
 
 
 
