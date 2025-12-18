@@ -184,7 +184,13 @@ GET /produtos?categoria=Eletronicos
 
 ## 🛠️ COMO EXECUTAR
 
-### 1) Subir a API
+Você precisa fazer o download do [Ollama](https://ollama.com/download) client e do [.NET 10 SDK](https://dotnet.microsoft.com/pt-br/download/dotnet/10.0)
+
+### 1) Baixar o Repositorio e Subir a API
+
+```
+git pull https://github.com/Phc01/teste-implementacao.git
+```
 
 ```
 cd mcp-api
